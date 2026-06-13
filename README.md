@@ -1,16 +1,115 @@
-## Hi there 👋
+# 玉那覇 臣 | Game Client Engineer
 
-<!--
-**tamanahajin/tamanahajin** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+C# / Unityを中心に、スマートフォン向けゲームの開発・運用を4年以上経験してきました。  
+現在はC++ / DirectX 12を使用した3Dシューティングゲームを個人制作し、大量の敵を扱うための描画・更新・コリジョン処理の最適化に取り組んでいます。
 
-Here are some ideas to get you started:
+[](https://github.com/tamanahajin)
+![C](https://img.shields.io/badge/C++-DirectX%2012-00599C?style=flat-square&logo=cplusplus)
+![C](https://img.shields.io/badge/C%23-Unity-512BD4?style=flat-square&logo=csharp)
+![HLSL](https://img.shields.io/badge/HLSL-Shader-222222?style=flat-square)
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## About Me
+
+- スマートフォン向けゲームのクライアント開発・運用を経験
+- ゲーム機能、UI、デバッグ機能、不具合修正、テストコードを担当
+- 既存コードの調査、リファクタリング、保守性を意識した実装が得意
+- プランナー、デザイナー、他社エンジニアと連携した開発を経験
+- 描画負荷、更新負荷、オブジェクト生成負荷を数値で確認しながら改善
+- 新しい技術の検証結果や開発手順を文書化し、チームへ共有
+
+## Personal Project
+
+### BOM！BOM！BOM！
+
+C++ / DirectX 12で開発している、爆弾と射撃で大量の敵を倒す3Dシューティングゲームです。
+
+[リポジトリを見る](https://github.com/tamanahajin/3D_Shooting)
+
+#### 主な実装
+
+- DirectX 12による3D描画
+- HLSLによるライティング、フォグ、シャドウ表現
+- 敵データの配列管理とバッチ更新
+- 敵モデルのインスタンシング描画
+- 敵コリジョンプロキシのプール化
+- 敵生成処理の複数フレームへの分散
+- 高台、坂、配置物、外周壁を考慮した敵生成位置の解決
+- CSVからのステージ生成
+- ImGuiによるステージエディタとデバッグUI
+- JSONによる敵ステータスとWave設定
+- FPS、処理時間、Raycast回数を記録するベンチマーク機能
+- 射撃、爆弾、ノックバック、ヒットストップ、カメラシェイク
+- BGM、SE、音量設定、ポーズ、リザルト画面
+
+#### パフォーマンス改善
+
+大量の敵を個別のGameObjectとして処理する構成から、データ指向のバッチ処理へ段階的に移行しています。
+
+```text
+敵ごとのGameObject更新
+        ↓
+位置・速度・HP・アニメーション状態を配列管理
+        ↓
+更新処理のバッチ化
+        ↓
+インスタンシング描画
+        ↓
+コリジョンプロキシのプール化
+```
+
+最適化前後を同じ条件で比較できるよう、平均FPS、最低FPS、1% Low FPS、敵更新時間、衝突処理時間などをCSVへ記録しています。
+
+## Professional Experience
+
+### スマートフォン向けゲーム開発
+
+2020年から2024年まで、Unity / C#を使用したクライアント開発・運用に従事しました。
+
+- 新規ゲーム機能の実装
+- アウトゲームUIの実装・改修
+- サブスクリプション機能の実装
+- インゲーム機能とデバッグ機能の実装
+- 不具合調査・修正
+- テストコードの追加
+- 既存コードのリファクタリング
+- 大型アップデート対応
+- アセット管理、課金、ストア申請などの運用対応
+- 汎用機能のライブラリ化
+
+### Roblox Studioによる研究開発
+
+Lua / Roblox Studioを使用したゲーム開発に参加しました。  
+環境構築手順、開発方法、発生した問題と対応内容を文書化し、社内へ知見を共有しました。
+
+### 業務システムの導入・運用支援
+
+2025年から2026年まで、戸籍システムの導入・運用支援に従事しました。
+
+- SQLによるデータ抽出・調査
+- 連携データを処理する自動バッチの実装
+- オンプレミスサーバーのクラウド移行対応
+- 正確性が求められる業務データの確認
+
+## Skills
+
+| 分類  | 技術  |
+| --- | --- |
+| Languages | C#, C++, HLSL, Lua, SQL, PowerShell |
+| Game Development | Unity, DirectX 12, Roblox Studio |
+| Graphics | 3D描画, インスタンシング, シェーダー, フォグ, シャドウ |
+| Tools | GitHub, Jenkins, ImGui, Visual Studio |
+| Data | JSON, CSV |
+| Engineering | リファクタリング, テストコード, デバッグ, パフォーマンス計測 |
+
+## Qualifications
+
+- ITパスポート
+- 情報処理技術者能力認定試験 2級
+- C言語プログラミング能力認定試験 2級
+
+## What I Value
+
+ユーザーが直接触れる機能では、見た目や操作感だけでなく、安定した動作を重視しています。  
+また、既存コードの影響範囲、可読性、保守性、今後の運用まで考慮して実装することを心がけています。
+
+個人制作では、処理負荷を感覚だけで判断せず、計測結果をもとにボトルネックを特定し、設計と実装の両面から改善しています。
